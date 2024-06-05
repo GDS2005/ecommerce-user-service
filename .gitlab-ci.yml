@@ -1,0 +1,33 @@
+# user-service/.gitlab-ci.yml
+
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  DOCKER_IMAGE: $CI_REGISTRY_IMAGE
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build:
+  stage: build
+  script:
+    - docker build -t $DOCKER_IMAGE:$CI_COMMIT_SHA .
+    - docker push $DOCKER_IMAGE:$CI_COMMIT_SHA
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - docker-compose pull
+    - docker-compose up -d --force-recreate
+  only:
+    - master
