@@ -24,7 +24,7 @@ app.use(cors());
 app.use(helmet());
 
 // v1 api routes
-app.use('/v1', require('./routes/v1/user.route'));
+app.use('/v1', require('./routes/v1/'));
 
 // Set the port for the server to listen on, using the value from environment variables or defaulting to 5000
 const PORT = process.env.PORT || 5000;

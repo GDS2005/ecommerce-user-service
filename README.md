@@ -21,7 +21,7 @@ A simple RESTful API for managing users, built with Node.js, Express, and MongoD
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/GDS2005/user-service
+    git clone https://github.com/GDS2005/ecommerce-user-service
     ```
 
 2. **Install dependencies**:
