@@ -55,7 +55,8 @@ exports.login = async (req, res) => {
             if (err) throw err;
             res.json({ 
                 tokens: {access: token},
-                role: user.role
+                role: user.role,
+                id: user._id,
             });
         });
     } catch (err) {

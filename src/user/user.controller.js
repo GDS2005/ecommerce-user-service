@@ -46,7 +46,7 @@ exports.getUser = async (req, res) => {
     try {
         const results = await User.findById(req.params.id);
         if (!results) return res.status(404).json({ msg: 'User not found' });
-        res.json({results});
+        res.json(results);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
@@ -55,7 +55,7 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
         const { id } = req.params;
     
         const { error } = userValidation.updateUser.body.validate(req.body);
@@ -70,7 +70,7 @@ exports.updateUser = async (req, res) => {
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
         }
-
+        if (role) user.role = role;
         await user.save();
         res.json(user);
     } catch (err) {
