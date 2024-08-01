@@ -35,7 +35,6 @@ A simple RESTful API for managing users, built with Node.js, Express, and MongoD
     Create a `.env` file in the root directory and add the content of .env.example. Modify has you need
 
 
-
 4. **Run the application**:
 
     ```bash
@@ -64,22 +63,22 @@ To run the application using Docker, follow these steps:
 
 3. **Access the API**:
 
-    Open your browser and navigate to `http://localhost:{{PORT}}`.
+    Use POST, GET, PATCH and DELETE in `http://localhost:{{PORT}}`.
 
 ## API Endpoints
 
 ### Authentication
 
-- **Login**: `POST /api/login`
-- **Register**: `POST /api/register`
+- **Login**: `POST /v1/login`
+- **Register**: `POST /v1/register`
 
-### Tasks
+### Users
 
-- **Create Task**: `POST /api/tasks`
-- **Get All Tasks**: `GET /api/tasks`
-- **Get Task by ID**: `GET /api/tasks/:id`
-- **Update Task**: `PUT /api/tasks/:id`
-- **Delete Task**: `DELETE /api/tasks/:id`
+- **Create User**: `POST /v1/`
+- **Get All Users**: `GET /v1/`
+- **Get User by ID**: `GET /v1/:id`
+- **Update User**: `PUT /v1/:id`
+- **Delete User**: `DELETE /v1/:id`
 
-## Project Structure
+
 
