@@ -16,7 +16,7 @@ A simple RESTful API for managing users, built with Node.js, Express, and MongoD
 - MongoDB
 - Docker (optional, for containerization)
 
-## Installation
+## Local Installation
 
 1. **Clone the repository**:
 
@@ -43,25 +43,30 @@ A simple RESTful API for managing users, built with Node.js, Express, and MongoD
 
 5. **Access the API**:
 
-    Open your browser and navigate to `http://localhost:{{PORT}}`.
+    Use POST, GET, PATCH and DELETE in `http://localhost:{{PORT}}`.
 
 ## Docker
 
 To run the application using Docker, follow these steps:
 
-1. **Build the Docker image**:
+
+1. **Clone the repository**:
 
     ```bash
-    docker build -t node-rest-user .
+    git clone https://github.com/GDS2005/ecommerce-user-service
     ```
 
-2. **Run the Docker container**:
+2. **Set up environment variables**:
+
+    Create a `.env` file in the root directory and add the content of .env.example. Modify has you need
+
+3. **Run the Docker container**:
 
     ```bash
-    docker run -d -p {{PORT}}:{{PORT}} --name node-rest-user-container --env-file .env node-rest-user
+    docker-compose up --build
     ```
 
-3. **Access the API**:
+4. **Access the API**:
 
     Use POST, GET, PATCH and DELETE in `http://localhost:{{PORT}}`.
 
